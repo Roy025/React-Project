@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Todos from "./Todos";
 import { v4 as uuidv4 } from "uuid";
 
@@ -19,6 +19,18 @@ const Home = () => {
       return filteredTodos;
     });
   };
+
+  //Set and Get Data from local storage
+
+  useEffect(() => {
+    if (todos.length !== 0)
+      localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  useEffect(() => {
+    const retrivetodos = JSON.parse(window.localStorage.getItem("todos"));
+    if (retrivetodos) setTodos(retrivetodos);
+  }, []);
 
   return (
     <div className={style.container}>
