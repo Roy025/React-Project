@@ -25,7 +25,7 @@ const Forcast = ({ data }) => {
 
 	return (
 		<>
-			<h4 style={{ marginLeft: '5px' }}>Daily</h4>
+			<h4 style={{ marginLeft: '5px' }}>Forecast</h4>
 			<Accordion allowZeroExpanded>
 				{data.list.slice(0, 7).map((item, idx) => (
 					<AccordionItem key={idx}>
